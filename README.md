@@ -7,17 +7,21 @@ Programme de test de la téléinfo pour les modules
 - Tout autre module compatible serie
 
 
-<img src="https://cdn.tindiemedia.com/images/resize/ig_pbCZIjoLemqZR6qATQbuCH_s=/p/full-fit-in/1782x1336/i/5857/products/2018-06-08T13%3A23%3A25.397Z-MicroTeleinfo_Top_V2.png
-" alt="Micro Teleinfo">
-
-<img src="https://cdn.tindiemedia.com/images/resize/_NEi1vA81_oZqI7M_-sKng3BLoA=/p/full-fit-in/1782x1336/i/5857/products/2018-06-08T13%3A11%3A25.054Z-PITinfo.png
-" alt="PITinfo">
-
 ## Installation
 
-Python est nécessaire et la libraie PySerial. PAr defaut le programme essaie de trouver le port série correspondant à la téléinfo. Si c'est un module MicroTeleinfo il sera automatiquement detecté avec son numéro de série. 
+Python est nécessaire et la libraie Pythob Serial. 
 
-Si le port `/dev/ttyAMA0` existe (Raspberry PI) il sera aussi automatiquement utilisé.
+Exemple sur Raspbery Pi
+
+```
+sudo apt-get install git-core python-serial
+git clone https://github.com/hallard/teleinfo-test
+cd teleinfo-test
+```
+
+Par defaut le programme essaie de trouver le port série correspondant à la téléinfo. Si c'est un module MicroTeleinfo il sera automatiquement detecté avec son numéro de série. 
+
+Si le port `/dev/ttyAMA0` existe (Raspberry Pi) il sera aussi automatiquement utilisé.
 
 ## Usage
 
@@ -51,6 +55,63 @@ Lancement du module avec choix manuel du port
 /dev/cu.usbserial-TINFO_1036: FT230X Basic UART - FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=20-1.4]
 ```
 
+Lancement du module avec choix automatique du port (ici sur un Pi avec PITinfo)
+
+`./teleinfo.py`
+
+
+```
+Missing serial port argument trying to find Teleinfo
+Teleinfo : Mode Historique
+Port     : /dev/ttyAMA0
+Vitesse  : 1200
+
+5
+ADCO 021528603314 :
+OPTARIF HC.. <
+ISOUSC 15 <
+HCHC 000723392  
+HCHP 001742204 '
+PTEC HP..  
+IINST 001 X
+IMAX 002 A
+PAPP 00180 *
+HHPHC A ,
+MOTDETAT 000000 B
+ADCO 021528603314 :
+OPTARIF HC.. <
+ISOUSC 15 <
+HCHC 000723392  
+HCHP 001742204 '
+PTEC HP..  
+IINST 001 X
+```
+
+Lancement du module avec choix automatique du port (ici sur un Mac avec un module MicroTeleinfo)
+`./teleinfo.py`
+
+```
+Missing serial port argument trying to find Teleinfo
+Teleinfo : Mode Historique
+Port     : /dev/cu.usbserial-TINFO_1036
+Vitesse  : 1200
+
+
+@#'V~
+OPTARIF HC.. <
+ISOUSC 15 <
+HCHC 000723392  
+HCHP 001742216 *
+PTEC HP..  
+IINST 001 X
+IMAX 002 A
+PAPP 00190 +
+HHPHC A ,
+MOTDETAT 000000 B
+ADCO 021528603314 :
+OPTARIF HC.. <
+
+```
 
 # License
 
