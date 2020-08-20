@@ -15,34 +15,41 @@ Programme de test de la téléinfo pour les modules
 
 ## Installation
 
-Python est nécessaire et la libraie PySerial
+Python est nécessaire et la libraie PySerial. PAr defaut le programme essaie de trouver le port série correspondant à la téléinfo. Si c'est un module MicroTeleinfo il sera automatiquement detecté avec son numéro de série. 
+
+Si le port `/dev/ttyAMA0` existe (Raspberry PI) il sera aussi automatiquement utilisé.
 
 ## Usage
 
-Usage du module :
+Aide
+
+`./teleinfo.py -h` ou `./teleinfo.py --help`
 
 ```
-./  from teleinfo import Parser
-  from teleinfo.hw_vendors import RpiDom
-  ti = Parser(RpiDom())
-  print ti.get_frame()
+./teleinfo.py -p|--port <serial_port>
+./teleinfo.py -s|--standard
+./teleinfo.py -l|--list
+./teleinfo.py [-h|--help]
 ```
 
-Le parseur supporte aussi l'itération :
+Affichage de la liste des ports séries dispobibles
+
+`./teleinfo.py -l` ou `./teleinfo.py --list`
 
 ```
-  from teleinfo import Parser
-  from teleinfo.hw_vendors import RpiDom
-  for frame in Parser(RpiDom()):
-      do_something_with(frame)
+./teleinfo.py -l
+/dev/cu.Bluetooth-Incoming-Port: n/a [n/a]
+/dev/cu.usbserial-TINFO_1036: FT230X Basic UART - FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=20-1.4]
 ```
 
-## Example
+Lancement du module avec choix manuel du port
 
+`./teleinfo.py -p /dev/ttyUSB0` ou `./teleinfo.py --port /dev/ttyUSB0`
 
-
-
-
+```
+/dev/cu.Bluetooth-Incoming-Port: n/a [n/a]
+/dev/cu.usbserial-TINFO_1036: FT230X Basic UART - FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=20-1.4]
+```
 
 
 # License
@@ -53,8 +60,7 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 
 # Misc
 
-See news and other projects on my [blog][2] 
+See news and other projects on my [blog][1] 
 
- 
-[2]: https://hallard.me
+[A]: https://hallard.me
 
