@@ -21,7 +21,7 @@ def find_serial_ports():
     for port, desc, hwid in sorted(ports):
         if "SER=TINFO" in hwid:
             return port
-        elif "/TTYAMA0" in hwid:
+        elif "ttyAMA0" in desc:
             return port
 
 def usage():
