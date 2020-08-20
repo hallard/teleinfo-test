@@ -9,9 +9,9 @@ Programme de test de la téléinfo pour les modules
 
 ## Installation
 
-Python est nécessaire et la libraie Pythob Serial. 
+Python est nécessaire ainsi que la librairie Python Serial. 
 
-Exemple sur Raspbery Pi
+Exemple d'installation sur Raspbery Pi ou Linux
 
 ```
 sudo apt-get install git-core python-serial
@@ -25,6 +25,9 @@ Si le port `/dev/ttyAMA0` existe (Raspberry Pi) il sera aussi automatiquement ut
 
 ## Usage
 
+L'option `-s`ou  `--standard` est utilisée si votre Linky est en mode Standard (9600 bps) et non historique (1200 bps).
+
+
 Aide
 
 `./teleinfo.py -h` ou `./teleinfo.py --help`
@@ -36,14 +39,14 @@ Aide
 ./teleinfo.py [-h|--help]
 ```
 
-Affichage de la liste des ports séries dispobibles
+
+Affichage de la liste des ports séries disponibles
 
 `./teleinfo.py -l` ou `./teleinfo.py --list`
 
 ```
-./teleinfo.py -l
 /dev/cu.Bluetooth-Incoming-Port: n/a [n/a]
-/dev/cu.usbserial-TINFO_1036: FT230X Basic UART - FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=20-1.4]
+/dev/ttyUSB0: FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=1-1.4]
 ```
 
 Lancement du module avec choix manuel du port
@@ -51,8 +54,25 @@ Lancement du module avec choix manuel du port
 `./teleinfo.py -p /dev/ttyUSB0` ou `./teleinfo.py --port /dev/ttyUSB0`
 
 ```
-/dev/cu.Bluetooth-Incoming-Port: n/a [n/a]
-/dev/cu.usbserial-TINFO_1036: FT230X Basic UART - FT230X Basic UART [USB VID:PID=0403:6015 SER=TINFO-1036 LOCATION=20-1.4]
+Teleinfo : Mode Historique
+Port     : /dev/ttyUSB0
+Vitesse  : 1200
+
+
+PTEC HP..  
+IINST 001 X
+IMAX 002 A
+PAPP 00180 *
+HHPHC A ,
+MOTDETAT 000000 B
+ADCO 021528603314 :
+OPTARIF HC.. <
+ISOUSC 15 <
+HCHC 000723392  
+HCHP 001742238 .
+PTEC HP..  
+IINST 001 X
+IMAX 002 A
 ```
 
 Lancement du module avec choix automatique du port (ici sur un Pi avec PITinfo)
