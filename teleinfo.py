@@ -17,12 +17,14 @@ def list_serial_ports():
         print("{}: {} [{}]".format(port, desc, hwid))
 
 def find_serial_ports():
+    ti = None
     ports = serial.tools.list_ports.comports()
     for port, desc, hwid in sorted(ports):
         if "SER=TINFO" in hwid:
-            return port
-        elif "ttyAMA0" in desc:
-            return port
+            ti = port
+        elif "ttyAMA0" in desc and ti==None:
+            ti = port
+    return ti
 
 def usage():
     print("{} -p|--port <serial_port>".format(ps_name))
