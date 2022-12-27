@@ -2,8 +2,9 @@
 
 Programme de test de la téléinfo pour les modules 
 
-- [uTeleinfo](https://www.tindie.com/products/hallard/pitinfo/)
-- [PITinfo](https://www.tindie.com/products/hallard/micro-teleinfo-v20/)
+- [PITinfo](https://www.tindie.com/products/hallard/pitinfo/)
+- [uTeleinfo V2](https://www.tindie.com/products/hallard/micro-teleinfo-v20/)
+- [uTeleinfo V3](https://www.tindie.com/products/hallard/micro-teleinfo-v30/)
 - Tout autre module compatible serie
 
 
