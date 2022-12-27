@@ -150,7 +150,6 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 
 # Misc
 
-See news and other projects on my [blog][1] 
+See news and other projects on my [blog](https://hallard.me)
 
-[A]: https://hallard.me
 
