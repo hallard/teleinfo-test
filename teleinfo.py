@@ -34,7 +34,7 @@ def usage():
     print("")
 
 
-# Main progrram start here 
+# Main progrram start here
 # ========================
 try:
     opts, args = getopt.getopt(argv, "hlsp:", ["help", "list", "standard", "port="])
@@ -73,11 +73,11 @@ print("Port     : {}".format(port))
 print("Vitesse  : {}".format(baudrate))
 print("\r\n")
 
-tinfo = serial.Serial( port=port, 
-					   baudrate=baudrate, 
-						parity=serial.PARITY_EVEN, 
-						stopbits=serial.STOPBITS_ONE, 
-						bytesize=serial.SEVENBITS )
+tinfo = serial.Serial( port=port,
+                       baudrate=baudrate,
+                       parity=serial.PARITY_EVEN,
+                       stopbits=serial.STOPBITS_ONE,
+                       bytesize=serial.SEVENBITS )
 
 while True:
 	c = tinfo.read(1)
